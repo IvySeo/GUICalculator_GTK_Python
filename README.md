@@ -8,7 +8,7 @@
 ## HOW TO RUN
 - install gtk 
    'sudo apt install python3-gi-cairo gir1.2-gtk-3.0'
-- 'python3 gui.py'
+- 'python3 gui.py' to start the program
 ## GRAPH
 ![github-small](https://github.com/IvySeo/GUICalculator_GTK_Python/blob/master/tableGraph.png)
 
