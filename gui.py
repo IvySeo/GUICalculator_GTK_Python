@@ -1,5 +1,5 @@
 # author: Ivy Seo
-# date: 08/15/2019
+# date: 08/21/2019
 # contact: ivy.rice.seo@gmail.com
 # language: Python
 # title: Calculator using gtk
@@ -10,8 +10,8 @@
 # 2. 'python3 filename.py' to start the program
 #-----------------------------------------
 
-# main.py: for GUI using gtk
-# calcFile.py: for calculation
+# gui.py: for GUI using gtk
+# calcul.py: for calculation
 
 #import calcFile to calculate and gtk files
 import calcul 
