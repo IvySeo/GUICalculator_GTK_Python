@@ -12,8 +12,6 @@
 ## GRAPH
 ![github-small](https://github.com/IvySeo/GUICalculator_GTK_Python/blob/master/tableGraph.png)
 
-## BUG (working on currently)
-- fail to calculate
    
    
    
