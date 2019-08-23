@@ -84,8 +84,8 @@ def calc(expr):                      # needs (expr) for debugging
         define()                     # call the define() to calculate
 	
 	return inputValue.pop() 
-# returns the value to gui.py 
-# value = the last element from the list, which is the calculated value
+        # returns the value to gui.py 
+        # value = the last element from the list, which is the calculated value
 				
 			
 
