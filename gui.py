@@ -13,7 +13,7 @@
 # gui.py: for GUI using gtk
 # calcul.py: for calculation
 
-#import calcFile to calculate and gtk files
+#import calcul file to calculate and gtk files
 import calcul 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -28,16 +28,19 @@ textbox = Gtk.Entry()
 class MyWindow:
 	def __init__(self):
 		pass
-
-	def calculate(self,widget):
-		x = textbox.get_text() #get text from textbox
-		x = str(calcul.calc(x)) #send it to calcFile to calculate
-		textbox.set_text(x) #display in the textbox
-
+	
+        # when a button is clicked
 	def buttonClicked(self,widget):
 		x = textbox.get_text()
-		x = x + widget.val #displays the input. w/o it, not work.
-		textbox.set_text(x)
+		x = x + widget.val        # displays the input
+		textbox.set_text(x)        
+		
+	# when calculate (=) button is clicked	
+	def calculate(self,widget):
+		x = textbox.get_text()    # get text from textbox
+		x = str(calcul.calc(x))   # send it to calcFile to calculate
+		textbox.set_text(x)       # display the calculated in the textbox
+	
 
 w = MyWindow()
 
@@ -60,14 +63,12 @@ btnDiv = Gtk.Button(label='/')
 btnExp = Gtk.Button(label='^')
 btnCal = Gtk.Button(label='=')
 
-#define value of the button
-#value should be string, not int (bug) 
+# define value of the button
+# value should be string, not int (bug) 
+buttons = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9] 
 
-#list for for-loop
-buttons = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9]
-
-for i in range(len(buttons)):
-	buttons[i].val=str(i)
+for i in range(len(buttons)):   # creates a range corresponding to the indexes in the list (0 to len(buttons) - 1)
+	buttons[i].val=str(i)   # set their values using for-loop for shorter/simple code
 
 btnAdd.val = '+'
 btnSub.val = '-'
@@ -76,14 +77,17 @@ btnDiv.val = '/'
 btnMod.val = '^'
 btnCal.val = '='
 
-#list to activate button clicks
+
+# to activate button clicks
 blists = [btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnAdd, btnSub, btnMul, btnDiv, btnExp, btnCal]
+
 for i in blists:
 	i.connect("clicked",w.buttonClicked)
-
+	
+# the calculation button activation
 btnCal.connect("clicked",w.calculate)
 
-#locate the button location. check the image on 'readme' on github
+#locate the button location. check the image on 'ReadMe' on github
 table.attach(btn1, 0, 1, 1, 2)
 table.attach(btn2, 1, 2, 1, 2)
 table.attach(btn3, 2, 3, 1, 2)
@@ -104,6 +108,6 @@ table.attach(textbox, 0, 3, 0, 1)
 
 
 window.add(table)
-window.show_all() #to display all the objects I created.
-window.connect("delete-event",Gtk.main_quit) #exit
+window.show_all()                                #to display all the objects I created.
+window.connect("delete-event",Gtk.main_quit)     #exit
 Gtk.main()
