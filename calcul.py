@@ -11,13 +11,15 @@ For more details, and how it's used, read the comments on each line
    So, the inputValue list (self.items=[]) will be added with the inputs
    (operator input element will be saved in operator list)
 4) define() : to sort the input values and calculate
-4.1) sort and define the variables : first input number, operator, second input number
-4.2) calculate two numbers and push the value
-4.3) the calculated value will be added to the inputValue list at the last
-5) return inputValue.pop(): it will return the calculated value using pop() 
-   because the value is located at the last of the inputValue list
+ 4.1) sort and define the variables : first input number, operator, second input number
+ 4.2) calculate two numbers and push the value
+ 4.3) the calculated value will be added to the inputValue list at the last
+5) return inputValue.pop(): it will return the calculated value 
+   the final value is located at the last of the inputValue list from 4.3
    
-- pop() will delete the data/reset after use (the list will be empty)
+note:
+- pop() : if the index is empty (like pop(), not pop(3)), then it will find the LAST element of the list
+        : and will pop out / remove the element from the list
 """
 
 # class and def
@@ -25,7 +27,7 @@ class calculation:
 	def __init__(self):
 		self.items=[] # list
 		
-	def errorTest(self): # value error test
+	def errorTest(self):  # value error test
 	    while True:
                 try:
                 except ValueError:
@@ -35,10 +37,10 @@ class calculation:
                     break
 
 	def push(self, num):
-		self.items.append(num)  # appends a num to the end of the self.items list
+		self.items.append(num)    # appends the num to the end of the list
 
 	def pop(self):
-		return self.items.pop() 
+		return self.items.pop()   # returns the last element of the list
 
 inputValue = calculation() 
 operator = calculation()
@@ -75,11 +77,11 @@ def define():
 		inputValue.push(z**x)
 
 # gui.py calls this one 
-def calc(expr):
+def calc(expr):                      # needs (expr) for debugging
 	num="" 
 		
-        inputValue.push(eval(num))   #eval() method returns the result evaluated from the expression
-        define()                     #call the define() to calculate
+        inputValue.push(eval(num))   # eval() method returns the result evaluated from the expression
+        define()                     # call the define() to calculate
 	
 	return inputValue.pop() 
 # returns the value to gui.py 
